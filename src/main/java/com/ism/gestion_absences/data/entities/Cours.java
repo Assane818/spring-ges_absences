@@ -1,5 +1,6 @@
 package com.ism.gestion_absences.data.entities;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Setter
 @Document(collection = "cours")
 public class Cours extends AbstractEntity {
+    private LocalDateTime date;
     private String nomCours;
     private int duree;
     private List<Presence> absences;

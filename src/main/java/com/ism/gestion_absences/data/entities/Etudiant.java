@@ -13,5 +13,6 @@ import lombok.Setter;
 public class Etudiant extends User {
     private String matricule;
     private Classe classe;
+    private boolean status;
     private List<Presence> absences;
 }

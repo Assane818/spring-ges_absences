@@ -14,8 +14,8 @@ import com.ism.gestion_absences.data.repository.EtudiantRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(2)
+// @Component
+// @Order(2)
 @RequiredArgsConstructor
 public class EtudiantMock implements CommandLineRunner {
     private final EtudiantRepository etudiantRepository;
@@ -33,6 +33,7 @@ public class EtudiantMock implements CommandLineRunner {
                 etudiant.setPassword("passer");
                 etudiant.setTelephone("77100101"+i);
                 etudiant.setMatricule("MAT" + i);
+                etudiant.setStatus(i % 2 == 0);
                 etudiant.setClasse(classe);
                 etudiants.add(etudiant);
             }
