@@ -2,13 +2,14 @@ package com.ism.gestion_absences.web.controllers.impl;
 
 import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ism.gestion_absences.data.entities.Etudiant;
 import com.ism.gestion_absences.web.controllers.EtudiantController;
+import com.ism.gestion_absences.web.dto.Response.RestResponse;
 
 @RestController
 public class EtudiantControllerImpl implements EtudiantController {
@@ -21,8 +22,7 @@ public class EtudiantControllerImpl implements EtudiantController {
 
     @Override
     public ResponseEntity<Map<String, Object>> getById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, null, "EtudiantSimpleResponse"), HttpStatus.OK);
     }
 
     @Override
