@@ -19,7 +19,7 @@ public class ClasseMock implements CommandLineRunner {
     public final ClasseRepository classeRepository;
     @Override
     public void run(String... args) throws Exception {
-        List<Classe> classes = new ArrayList();
+        List<Classe> classes = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Classe classe = new Classe();
             classe.setFiliere("Filiere " + i);

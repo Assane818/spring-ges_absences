@@ -12,5 +12,6 @@ import lombok.Setter;
 @Document(collection = "cours")
 public class Cours extends AbstractEntity {
     private String nomCours;
+    private int duree;
     private List<Presence> absences;
 }

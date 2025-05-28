@@ -20,7 +20,7 @@ public class AdminMock implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<Admin> admins = new ArrayList();
+        List<Admin> admins = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Admin admin = new Admin();
             admin.setNom("Admin " + i);

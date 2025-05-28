@@ -19,7 +19,7 @@ public class VigileMock implements CommandLineRunner {
     private final VigileRepository vigileRepository;
     @Override
     public void run(String... args) throws Exception {
-        List<Vigile> vigiles = new ArrayList();
+        List<Vigile> vigiles = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Vigile vigile = new Vigile();
             vigile.setNom("Vigile " + i);

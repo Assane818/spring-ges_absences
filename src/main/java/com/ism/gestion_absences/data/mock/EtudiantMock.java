@@ -22,7 +22,7 @@ public class EtudiantMock implements CommandLineRunner {
     private final ClasseRepository classeRepository;
     @Override
     public void run(String... args) throws Exception {
-        List<Etudiant> etudiants = new ArrayList();
+        List<Etudiant> etudiants = new ArrayList<>();
         var classes = classeRepository.findAll();
         for (Classe classe : classes) {
             for (int i = 0; i < 5; i++) {
