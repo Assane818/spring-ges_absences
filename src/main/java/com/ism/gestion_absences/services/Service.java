@@ -9,7 +9,7 @@ public interface Service<T> {
     Page<T> getAllPaginate(Pageable pageable);
     List<T> getAll();
     T create(T t);
-    T update(Long id, T t);
-    T getById(Long id);
-    boolean delete(Long id);
+    T update(String id, T t);
+    T getById(String id);
+    boolean delete(String id);
 }

@@ -44,7 +44,7 @@ public interface Controller<T> {
             description = "l'objet n'existe pas"
         )
     })
-    ResponseEntity<Map<String,Object>> getById(@PathVariable Long id);
+    ResponseEntity<Map<String,Object>> getById(@PathVariable String id);
     @PostMapping("")
     @Operation(summary = "cree un objet", description = "Retourne l'objet cree")
     @ApiResponses(value = {
@@ -70,7 +70,7 @@ public interface Controller<T> {
             description = "une erreur lors de la modification de l'objet"
         )
     })
-    ResponseEntity<Map<String,Object>> update(@PathVariable Long id, T object, BindingResult bindingResult);
+    ResponseEntity<Map<String,Object>> update(@PathVariable String id, T object, BindingResult bindingResult);
     @DeleteMapping("{id}")
     @Operation(summary = "Supprime un objet a travers son id", description = "Retourne true ou false")
     @ApiResponses(value = {
@@ -83,5 +83,5 @@ public interface Controller<T> {
             description = "une erreur lors de la suppression de l'objet"
         )
     })
-    ResponseEntity<Boolean> delete(@PathVariable Long id);
+    ResponseEntity<Boolean> delete(@PathVariable String id);
 }

@@ -24,6 +24,7 @@ public class EtudiantMock implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<Etudiant> etudiants = new ArrayList<>();
         var classes = classeRepository.findAll();
+        int cpt = 0;
         for (Classe classe : classes) {
             for (int i = 0; i < 5; i++) {
                 Etudiant etudiant = new Etudiant();
@@ -32,7 +33,7 @@ public class EtudiantMock implements CommandLineRunner {
                 etudiant.setLogin("etudiant" + i + "@gmail.com");
                 etudiant.setPassword("passer");
                 etudiant.setTelephone("77100101"+i);
-                etudiant.setMatricule("MAT" + i);
+                etudiant.setMatricule("MAT" + cpt++);
                 etudiant.setStatus(i % 2 == 0);
                 etudiant.setClasse(classe);
                 etudiants.add(etudiant);

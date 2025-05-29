@@ -19,7 +19,7 @@ public class CoursControllerImpl implements CoursController {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> getById(Long id) {
+    public ResponseEntity<Map<String, Object>> getById(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
@@ -31,13 +31,13 @@ public class CoursControllerImpl implements CoursController {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> update(Long id, Cours object, BindingResult bindingResult) {
+    public ResponseEntity<Map<String, Object>> update(String id, Cours object, BindingResult bindingResult) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public ResponseEntity<Boolean> delete(Long id) {
+    public ResponseEntity<Boolean> delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }

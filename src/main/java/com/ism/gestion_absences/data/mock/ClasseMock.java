@@ -24,6 +24,7 @@ public class ClasseMock implements CommandLineRunner {
             Classe classe = new Classe();
             classe.setFiliere("Filiere " + i);
             classe.setNiveau("Niveau " + i);
+            classe.setNomClasse(classe.getNiveau() + " " + classe.getFiliere());
             classes.add(classe);
         }
         classeRepository.saveAll(classes);

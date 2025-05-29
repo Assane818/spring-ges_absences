@@ -4,12 +4,18 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Etudiant;
+import com.ism.gestion_absences.data.repository.EtudiantRepository;
 import com.ism.gestion_absences.services.EtudiantService;
 
-public class EtudiantServiceImpl implements EtudiantService {
+import lombok.RequiredArgsConstructor;
 
+@Service
+@RequiredArgsConstructor
+public class EtudiantServiceImpl implements EtudiantService {
+    private final EtudiantRepository etudiantRepository;
     @Override
     public Page<Etudiant> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -29,21 +35,25 @@ public class EtudiantServiceImpl implements EtudiantService {
     }
 
     @Override
-    public Etudiant update(Long id, Etudiant t) {
+    public Etudiant update(String id, Etudiant t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public Etudiant getById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+    public Etudiant getById(String id) {
+        return etudiantRepository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Etudiant getByMatricule(String matricule) {
+        return etudiantRepository.findEtudiantByMatricule(matricule);
     }
     
 }

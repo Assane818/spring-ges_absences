@@ -8,4 +8,5 @@ import com.ism.gestion_absences.data.entities.Etudiant;
 
 public interface EtudiantRepository extends MongoRepository<Etudiant, String> {
     Page<Etudiant> findAll(Pageable pageable);
+    Etudiant findEtudiantByMatricule(String matricule);
 }

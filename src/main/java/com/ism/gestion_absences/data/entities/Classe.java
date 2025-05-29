@@ -13,5 +13,6 @@ import lombok.Setter;
 public class Classe extends AbstractEntity {
     private String filiere;
     private String niveau;
+    private String nomClasse;
     private List<Etudiant> etudiants;
 }

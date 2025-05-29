@@ -4,10 +4,15 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Presence;
 import com.ism.gestion_absences.services.PresenceService;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class PresenceServiceImpl implements PresenceService {
 
     @Override
@@ -29,19 +34,19 @@ public class PresenceServiceImpl implements PresenceService {
     }
 
     @Override
-    public Presence update(Long id, Presence t) {
+    public Presence update(String id, Presence t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public Presence getById(Long id) {
+    public Presence getById(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Admin;
 import com.ism.gestion_absences.data.entities.Cours;
@@ -11,6 +12,10 @@ import com.ism.gestion_absences.data.entities.Justificatif;
 import com.ism.gestion_absences.data.enums.TypePresence;
 import com.ism.gestion_absences.services.AdminService;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
 
     @Override
@@ -32,19 +37,19 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin update(Long id, Admin t) {
+    public Admin update(String id, Admin t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public Admin getById(Long id) {
+    public Admin getById(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
