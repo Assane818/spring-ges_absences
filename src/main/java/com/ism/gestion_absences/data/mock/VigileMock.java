@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.ism.gestion_absences.data.entities.Vigile;
+import com.ism.gestion_absences.data.enums.Role;
 import com.ism.gestion_absences.data.repository.VigileRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class VigileMock implements CommandLineRunner {
     private final VigileRepository vigileRepository;
+    private final PasswordEncoder passwordEncoder;
     @Override
     public void run(String... args) throws Exception {
         List<Vigile> vigiles = new ArrayList<>();
@@ -25,11 +28,11 @@ public class VigileMock implements CommandLineRunner {
             vigile.setNom("Vigile " + i);
             vigile.setPrenom("Prenom " + i);
             vigile.setLogin("vigile" + i + "@gmail.com");
-            vigile.setPassword("passer");
+            vigile.setPassword(passwordEncoder.encode("passer"));
             vigile.setTelephone("77300301" + i);
+            vigile.setRole(Role.VIGILE);
             vigiles.add(vigile);
         }
         vigileRepository.saveAll(vigiles);
     }
-
 }

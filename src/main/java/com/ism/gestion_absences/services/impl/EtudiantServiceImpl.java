@@ -53,7 +53,7 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public Etudiant getByMatricule(String matricule) {
-        return etudiantRepository.findEtudiantByMatricule(matricule);
+        return etudiantRepository.findFirstByMatricule(matricule);
     }
     
 }

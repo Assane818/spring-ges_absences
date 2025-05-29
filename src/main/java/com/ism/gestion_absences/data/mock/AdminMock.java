@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.ism.gestion_absences.data.entities.Admin;
+import com.ism.gestion_absences.data.enums.Role;
 import com.ism.gestion_absences.data.repository.AdminRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminMock implements CommandLineRunner {
     private final AdminRepository adminRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -26,8 +29,9 @@ public class AdminMock implements CommandLineRunner {
             admin.setNom("Admin " + i);
             admin.setPrenom("Prenom " + i);
             admin.setLogin("admin" + i + "@gmail.com");
-            admin.setPassword("passer");
+            admin.setPassword(passwordEncoder.encode("passer"));
             admin.setTelephone("77200201" + i);
+            admin.setRole(Role.ADMIN);
             admins.add(admin);
         }
         adminRepository.saveAll(admins);
