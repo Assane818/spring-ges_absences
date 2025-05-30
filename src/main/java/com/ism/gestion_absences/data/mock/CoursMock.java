@@ -1,5 +1,7 @@
 package com.ism.gestion_absences.data.mock;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,12 +24,9 @@ public class CoursMock implements CommandLineRunner {
         for (int i = 0; i < 10; i++) {
             Cours cours = new Cours();
             cours.setNomCours("Cours " + i);
-            if (i % 2 == 0) {
-                cours.setDuree(4);
-            }
-            else {
-                cours.setDuree(2);
-            }
+            cours.setDate(LocalDateTime.now().plusDays(i));
+            cours.setHeureDebut(LocalTime.now().plusHours(i));
+            cours.setHeureFin(LocalTime.now().plusHours(4));
             coursList.add(cours);
         }
         coursRepository.saveAll(coursList);

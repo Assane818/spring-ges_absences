@@ -35,8 +35,6 @@ public class AuthControllerImpl implements AuthController {
     @Override
     public ResponseEntity<Map<String, Object>> login(@RequestBody AuthRequest authRequest) {
         Optional<Admin> admin = adminRepository.findFirstByLogin(authRequest.getLogin());
-        System.out.println("---------------------------------------------------------------------------------------");
-        System.out.println("Login attempt for: " + authRequest.getLogin());
         if (admin.isPresent() && passwordEncoder.matches(authRequest.getPassword(), admin.get().getPassword())) {
             return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, userMapper.toUserOneResponse(admin.get()), "UserOneResponse"), HttpStatus.OK);
         }

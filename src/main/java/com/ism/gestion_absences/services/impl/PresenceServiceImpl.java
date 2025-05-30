@@ -2,11 +2,13 @@ package com.ism.gestion_absences.services.impl;
 
 import java.util.List;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Presence;
+import com.ism.gestion_absences.data.enums.TypePresence;
+import com.ism.gestion_absences.data.repository.PresenceRepository;
 import com.ism.gestion_absences.services.PresenceService;
 
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class PresenceServiceImpl implements PresenceService {
+
+    private final PresenceRepository presenceRepository;
 
     @Override
     public Page<Presence> getAllPaginate(Pageable pageable) {
@@ -49,6 +53,11 @@ public class PresenceServiceImpl implements PresenceService {
     public boolean delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Page<Presence> getByType(TypePresence type, Pageable pageable) {
+        return presenceRepository.findByTypePresence(type, pageable);
     }
 
 }

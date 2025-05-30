@@ -16,3 +16,6 @@ Content-Type: application/json
   "login": "admin0@gmail.com",
   "password": "passer"
 }
+
+###
+GET http://localhost:8080/api/v1/presences/type=ABSENT
