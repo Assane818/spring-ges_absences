@@ -1,6 +1,6 @@
 package com.ism.gestion_absences.data.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Document(collection = "cours")
 public class Cours extends AbstractEntity {
-    private LocalDateTime date;
+    private LocalDate date;
     private String nomCours;
     private LocalTime heureDebut;
     private LocalTime heureFin;

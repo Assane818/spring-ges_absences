@@ -34,4 +34,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/v1/presences/type=ABSENT/etudiant/68388d5dee3dc7deb1b87124
+GET http://localhost:8080/api/v1/presences/type=ABSENT/etudiant/683b268ad319c7cdc06d8f0c
+
+###
+GET http://localhost:8080/api/v1/presences/etudiant/MAT5
+
+###
+GET http://localhost:8080/api/v1/cours/etudiant/683b3ca7c852f59d3265d103

@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,4 +54,18 @@ public interface PresenceController extends Controller<Presence> {
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size
     );
+
+    @GetMapping("/etudiant/{matricule}")
+    @Operation(summary = "Recupere l'etudiant scanne", description = "Retourne la presence cree pour l'etudiant scanne")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "201",
+            description = "la presence est creee avec succes pour l'etudiant scanne"
+        ),
+        @ApiResponse(
+            responseCode = "500",
+            description = "une erreur lors de la creation de la presence pour l'etudiant scanne"
+        )
+    })
+    ResponseEntity<Map<String,Object>> pointage(@PathVariable String matricule);
 }

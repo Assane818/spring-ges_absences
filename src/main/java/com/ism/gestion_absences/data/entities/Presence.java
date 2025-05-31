@@ -1,5 +1,6 @@
 package com.ism.gestion_absences.data.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import lombok.Setter;
 @Setter
 @Document(collection = "presences")
 public class Presence extends AbstractEntity {
-    private LocalDateTime date;
+    private LocalDate date;
     private TypePresence typePresence;
     private List<Justificatif> justificatifs;
     private Etudiant etudiant;
