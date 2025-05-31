@@ -33,8 +33,7 @@ public class PresenceServiceImpl implements PresenceService {
 
     @Override
     public Presence create(Presence t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        return presenceRepository.save(t);
     }
 
     @Override
