@@ -59,4 +59,9 @@ public class PresenceServiceImpl implements PresenceService {
         return presenceRepository.findByTypePresence(type, pageable);
     }
 
+    @Override
+    public Page<Presence> getByEtudiantId(String etudiantId, TypePresence type, Pageable pageable) {
+        return presenceRepository.findByEtudiantIdAndTypePresence(etudiantId, type, pageable);
+    }
+
 }

@@ -8,4 +8,5 @@ import com.ism.gestion_absences.data.enums.TypePresence;
 
 public interface PresenceService extends Service<Presence> {
     Page<Presence> getByType(TypePresence type, Pageable pageable);
+    Page<Presence> getByEtudiantId(String etudiantId, TypePresence type, Pageable pageable);
 }

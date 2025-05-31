@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.ism.gestion_absences.data.entities.Etudiant;
-import com.ism.gestion_absences.web.dto.Response.EtudiantOneResponse;
+import com.ism.gestion_absences.mobile.dto.Response.EtudiantOneResponse;
 
 @Mapper(componentModel = "spring")
 public interface EtudiantMapper {
