@@ -19,3 +19,16 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/v1/presences/type=ABSENT
+
+###
+GET http://localhost:8080/api/v1/presences/68388d5eee3dc7deb1b87155
+
+###
+Post http://localhost:8080/api/v1/justificatifs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "motif": "Malade depuis 3 jours",
+  "presenceId": "68388d5eee3dc7deb1b87158"
+}

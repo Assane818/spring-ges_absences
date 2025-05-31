@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Justificatif;
+import com.ism.gestion_absences.data.repository.JustificatifRepository;
 import com.ism.gestion_absences.services.JustificatifService;
 
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JustificatifServiceImpl implements JustificatifService {
 
+    private final JustificatifRepository justificatifRepository;
     @Override
     public Page<Justificatif> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -29,8 +31,7 @@ public class JustificatifServiceImpl implements JustificatifService {
 
     @Override
     public Justificatif create(Justificatif t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        return justificatifRepository.save(t);
     }
 
     @Override

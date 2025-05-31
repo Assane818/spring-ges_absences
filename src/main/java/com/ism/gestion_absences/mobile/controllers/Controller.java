@@ -1,4 +1,4 @@
-package com.ism.gestion_absences.web.controllers;
+package com.ism.gestion_absences.mobile.controllers;
 
 import java.util.Map;
 
@@ -45,6 +45,7 @@ public interface Controller<T> {
         )
     })
     ResponseEntity<Map<String,Object>> getById(@PathVariable String id);
+
     @PostMapping("")
     @Operation(summary = "cree un objet", description = "Retourne l'objet cree")
     @ApiResponses(value = {
@@ -58,6 +59,7 @@ public interface Controller<T> {
         )
     })
     ResponseEntity<Map<String,Object>> create(T object, BindingResult bindingResult);
+    
     @PutMapping("{id}")
     @Operation(summary = "Modifie un objet", description = "Retourne l'objet modifie")
     @ApiResponses(value = {

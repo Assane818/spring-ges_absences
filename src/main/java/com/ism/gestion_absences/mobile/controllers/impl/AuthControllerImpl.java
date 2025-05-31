@@ -1,4 +1,4 @@
-package com.ism.gestion_absences.web.controllers.impl;
+package com.ism.gestion_absences.mobile.controllers.impl;
 
 import java.util.Map;
 import java.util.Optional;
@@ -14,9 +14,9 @@ import com.ism.gestion_absences.data.entities.Vigile;
 import com.ism.gestion_absences.data.repository.AdminRepository;
 import com.ism.gestion_absences.data.repository.EtudiantRepository;
 import com.ism.gestion_absences.data.repository.VigileRepository;
+import com.ism.gestion_absences.mobile.controllers.AuthController;
 import com.ism.gestion_absences.utils.mappers.EtudiantMapper;
 import com.ism.gestion_absences.utils.mappers.UserMapper;
-import com.ism.gestion_absences.web.controllers.AuthController;
 import com.ism.gestion_absences.web.dto.Request.AuthRequest;
 import com.ism.gestion_absences.web.dto.Response.RestResponse;
 

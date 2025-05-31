@@ -1,4 +1,4 @@
-package com.ism.gestion_absences.web.controllers.impl;
+package com.ism.gestion_absences.mobile.controllers.impl;
 
 import java.util.Map;
 
@@ -8,9 +8,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ism.gestion_absences.data.entities.Etudiant;
+import com.ism.gestion_absences.mobile.controllers.EtudiantController;
 import com.ism.gestion_absences.services.EtudiantService;
 import com.ism.gestion_absences.utils.mappers.EtudiantMapper;
-import com.ism.gestion_absences.web.controllers.EtudiantController;
 import com.ism.gestion_absences.web.dto.Response.RestResponse;
 
 import lombok.RequiredArgsConstructor;

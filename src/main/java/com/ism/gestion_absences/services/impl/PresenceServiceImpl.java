@@ -45,8 +45,7 @@ public class PresenceServiceImpl implements PresenceService {
 
     @Override
     public Presence getById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        return presenceRepository.findById(id).orElse(null);
     }
 
     @Override
