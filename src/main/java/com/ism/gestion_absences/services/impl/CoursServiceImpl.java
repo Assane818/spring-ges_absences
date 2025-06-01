@@ -1,5 +1,6 @@
 package com.ism.gestion_absences.services.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CoursServiceImpl implements CoursService {
 
+    private CoursService coursService;
     @Override
     public Page<Cours> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -49,6 +51,11 @@ public class CoursServiceImpl implements CoursService {
     public boolean delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Page<Cours> getByDate(LocalDate date, Pageable pageable) {
+        return coursService.getByDate(date, pageable);
     }
 
 }
