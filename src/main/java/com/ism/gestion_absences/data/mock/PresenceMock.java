@@ -17,8 +17,8 @@ import com.ism.gestion_absences.data.repository.PresenceRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(2)
+// @Component
+// @Order(2)
 @RequiredArgsConstructor
 public class PresenceMock implements CommandLineRunner  {
     private final PresenceRepository presenceRepository;

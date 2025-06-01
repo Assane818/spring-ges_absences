@@ -11,5 +11,6 @@ public interface PresenceRepository extends MongoRepository<Presence, String> {
     Page<Presence> findAll(Pageable pageable);
     Page<Presence> findByTypePresence(TypePresence type, Pageable pageable);
     Page<Presence> findByEtudiantIdAndTypePresence(String etudiantId, TypePresence type, Pageable pageable);
+    Page<Presence> findByCoursIdAndTypePresence(String coursId, TypePresence type, Pageable pageable);
 
 }

@@ -14,8 +14,8 @@ import com.ism.gestion_absences.data.repository.VigileRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order
+// @Component
+// @Order
 @RequiredArgsConstructor
 public class VigileMock implements CommandLineRunner {
     private final VigileRepository vigileRepository;

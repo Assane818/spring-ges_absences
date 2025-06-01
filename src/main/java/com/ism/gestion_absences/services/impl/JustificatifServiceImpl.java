@@ -36,14 +36,17 @@ public class JustificatifServiceImpl implements JustificatifService {
 
     @Override
     public Justificatif update(String id, Justificatif t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        Justificatif just = justificatifRepository.findById(id).orElse(null);
+        if (just != null) {
+            just.setValidation(t.isValidation());
+        }
+        return justificatifRepository.save(just);
     }
+
 
     @Override
     public Justificatif getById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        return justificatifRepository.findById(id).orElse(null);
     }
 
     @Override

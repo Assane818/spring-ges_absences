@@ -17,7 +17,7 @@ import com.ism.gestion_absences.data.repository.VigileRepository;
 import com.ism.gestion_absences.mobile.controllers.AuthController;
 import com.ism.gestion_absences.utils.mappers.EtudiantMapper;
 import com.ism.gestion_absences.utils.mappers.UserMapper;
-import com.ism.gestion_absences.web.dto.Request.AuthRequest;
+import com.ism.gestion_absences.mobile.dto.Request.AuthRequest;
 import com.ism.gestion_absences.web.dto.Response.RestResponse;
 
 import lombok.RequiredArgsConstructor;

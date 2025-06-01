@@ -1,4 +1,4 @@
-package com.ism.gestion_absences.mobile.controllers.impl;
+package com.ism.gestion_absences.web.controllers.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,22 +11,20 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ism.gestion_absences.mobile.controllers.JustificatifController;
-import com.ism.gestion_absences.mobile.dto.Request.JustificatifRequest;
-import com.ism.gestion_absences.web.dto.Response.RestResponse;
+import com.ism.gestion_absences.data.entities.Justificatif;
 import com.ism.gestion_absences.services.JustificatifService;
-import com.ism.gestion_absences.services.PresenceService;
 import com.ism.gestion_absences.utils.mappers.JustificatifMapper;
+import com.ism.gestion_absences.web.controllers.JustificatifWebController;
+import com.ism.gestion_absences.web.dto.Request.JustificatifUpdateRequest;
+import com.ism.gestion_absences.web.dto.Response.RestResponse;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-public class JustificatifControllerImpl implements JustificatifController {
+public class JustificatifWebControllerImpl implements JustificatifWebController {
 
-    private final JustificatifService justificatifService; 
-    private final PresenceService presenceService;
+    private final JustificatifService justificatifService;
     private final JustificatifMapper justificatifMapper;
     @Override
     public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
@@ -36,30 +34,31 @@ public class JustificatifControllerImpl implements JustificatifController {
 
     @Override
     public ResponseEntity<Map<String, Object>> getById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        Justificatif justificatif = justificatifService.getById(id);
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, justificatifMapper.toJustificatifOneWebResponse(justificatif), "JustificatifOneWebResponse"), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> create(@Valid @RequestBody JustificatifRequest object, BindingResult bindingResult) {
+    public ResponseEntity<Map<String, Object>> create(JustificatifUpdateRequest object, BindingResult bindingResult) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'create'");
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> update(String id, @RequestBody JustificatifUpdateRequest object, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
             List<FieldError> fields = bindingResult.getFieldErrors();
             fields.forEach(fieldError->errors.put(fieldError.getField().toLowerCase(), fieldError.getDefaultMessage()));
             return new ResponseEntity<>(RestResponse.response(HttpStatus.BAD_REQUEST, errors, "Map<String, String>"), HttpStatus.BAD_REQUEST);
         } else {
-            var presence = presenceService.getById(object.getPresenceId());
-            var just = justificatifService.create(justificatifMapper.toEntity(object));
-            just.setPresence(presence);
-            just.setValidation(false);
-            return new ResponseEntity<>(RestResponse.response(HttpStatus.CREATED, justificatifMapper.toJustificatifOneResponse(just), "JustificatifOneResponse"), HttpStatus.CREATED);
+            var justificatif = justificatifMapper.toEntity(object);
+            var just = justificatifService.update(id, justificatif);
+            if (just == null) {
+                return new ResponseEntity<>(RestResponse.response(HttpStatus.NOT_FOUND, null, "CategorieAllResponse"), HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(RestResponse.response(HttpStatus.ACCEPTED, justificatifMapper.toJustificatifOneWebResponse(just), "CategorieAllResponse"), HttpStatus.ACCEPTED);
         }
-    }
-
-    @Override
-    public ResponseEntity<Map<String, Object>> update(String id, JustificatifRequest object, BindingResult bindingResult) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override

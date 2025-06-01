@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ism.gestion_absences.data.entities.Cours;
 import com.ism.gestion_absences.mobile.controllers.CoursController;
-import com.ism.gestion_absences.mobile.dto.Response.RestResponse;
+import com.ism.gestion_absences.web.dto.Response.RestResponse;
 import com.ism.gestion_absences.services.CoursClasseService;
 import com.ism.gestion_absences.services.EtudiantService;
 import com.ism.gestion_absences.utils.mappers.CoursMapper;

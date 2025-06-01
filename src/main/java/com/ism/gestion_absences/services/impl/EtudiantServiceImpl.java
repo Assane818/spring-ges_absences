@@ -18,8 +18,7 @@ public class EtudiantServiceImpl implements EtudiantService {
     private final EtudiantRepository etudiantRepository;
     @Override
     public Page<Etudiant> getAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllPaginate'");
+        return etudiantRepository.findAll(pageable);
     }
 
     @Override
@@ -54,6 +53,16 @@ public class EtudiantServiceImpl implements EtudiantService {
     @Override
     public Etudiant getByMatricule(String matricule) {
         return etudiantRepository.findFirstByMatricule(matricule);
+    }
+
+    @Override
+    public Page<Etudiant> getByClasseId(String classeId, Pageable pageable) {
+        return etudiantRepository.findByClasseId(classeId, pageable);
+    }
+
+    @Override
+    public Page<Etudiant> getByStatus(boolean status, Pageable pageable) {
+        return etudiantRepository.findByStatus(status, pageable);
     }
     
 }

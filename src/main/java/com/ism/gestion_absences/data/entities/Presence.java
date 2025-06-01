@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Presence extends AbstractEntity {
     private LocalDate date;
     private TypePresence typePresence;
-    private List<Justificatif> justificatifs;
+    private Justificatif justificatif;
     private Etudiant etudiant;
     private Cours cours;
     private Admin admin;

@@ -12,8 +12,8 @@ import com.ism.gestion_absences.data.repository.ClasseRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(1)
+// @Component
+// @Order(1)
 @RequiredArgsConstructor
 public class ClasseMock implements CommandLineRunner {
     public final ClasseRepository classeRepository;

@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AuthRequest {
-    private String login;
-    private String password;
+public class JustificatifUpdateRequest {
+    private boolean validation;
 }

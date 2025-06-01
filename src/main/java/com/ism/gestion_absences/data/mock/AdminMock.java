@@ -14,8 +14,8 @@ import com.ism.gestion_absences.data.repository.AdminRepository;
 
 import lombok.RequiredArgsConstructor;
 
-@Component
-@Order(1)
+// @Component
+// @Order(1)
 @RequiredArgsConstructor
 public class AdminMock implements CommandLineRunner {
     private final AdminRepository adminRepository;
