@@ -1,4 +1,4 @@
-package com.ism.gestion_absences.mobile.controllers;
+package com.ism.gestion_absences.security.controllers;
 
 import java.util.Map;
 

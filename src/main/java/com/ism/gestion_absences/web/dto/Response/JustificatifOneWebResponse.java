@@ -11,8 +11,8 @@ public class JustificatifOneWebResponse {
     private String motif;
     private boolean validation;
     private String presenceId;
-    private String nomEtudiant;
-    private String prenomEtudiant;
+    private String nom;
+    private String prenom;
     private String matricule;
     private String classe;
 }

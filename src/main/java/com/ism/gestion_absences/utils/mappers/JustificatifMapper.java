@@ -18,8 +18,8 @@ public interface JustificatifMapper {
     JustificatifOneResponse toJustificatifOneResponse(Justificatif justificatif);
 
     @Mapping(source = "presence.id", target = "presenceId")
-    @Mapping(source = "presence.etudiant.nom", target = "nomEtudiant")
-    @Mapping(source = "presence.etudiant.prenom", target = "prenomEtudiant")
+    @Mapping(source = "presence.etudiant.nom", target = "nom")
+    @Mapping(source = "presence.etudiant.prenom", target = "prenom")
     @Mapping(source = "presence.etudiant.matricule", target = "matricule")
     @Mapping(source = "presence.etudiant.classe.nomClasse", target = "classe")
     JustificatifOneWebResponse toJustificatifOneWebResponse(Justificatif justificatif);

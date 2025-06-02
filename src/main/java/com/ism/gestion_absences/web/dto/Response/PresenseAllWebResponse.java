@@ -2,7 +2,6 @@ package com.ism.gestion_absences.web.dto.Response;
 
 import java.time.LocalDate;
 
-import com.ism.gestion_absences.data.enums.TypePresence;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
