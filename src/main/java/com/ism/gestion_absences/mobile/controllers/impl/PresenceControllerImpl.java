@@ -145,7 +145,7 @@ public class PresenceControllerImpl implements PresenceController {
                 presence.setCours(coursCible.getCours());
             } else {
                 return new ResponseEntity<>(
-                        RestResponse.response(HttpStatus.NOT_FOUND, "pas de cours", "ErrorResponse"),
+                        RestResponse.response(HttpStatus.NOT_FOUND, null, "ErrorResponse"),
                         HttpStatus.NOT_FOUND);
             }
 

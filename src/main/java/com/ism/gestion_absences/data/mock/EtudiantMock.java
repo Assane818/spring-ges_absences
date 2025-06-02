@@ -29,7 +29,7 @@ public class EtudiantMock implements CommandLineRunner {
         var classes = classeRepository.findAll();
         int cpt = 0;
         for (Classe classe : classes) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 Etudiant etudiant = new Etudiant();
                 etudiant.setNom("Etudiant " + i);
                 etudiant.setPrenom("Prenom " + i);

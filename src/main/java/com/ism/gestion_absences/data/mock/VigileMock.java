@@ -15,7 +15,7 @@ import com.ism.gestion_absences.data.repository.VigileRepository;
 import lombok.RequiredArgsConstructor;
 
 // @Component
-// @Order
+// @Order(1)
 @RequiredArgsConstructor
 public class VigileMock implements CommandLineRunner {
     private final VigileRepository vigileRepository;
@@ -23,7 +23,7 @@ public class VigileMock implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         List<Vigile> vigiles = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Vigile vigile = new Vigile();
             vigile.setNom("Vigile " + i);
             vigile.setPrenom("Prenom " + i);

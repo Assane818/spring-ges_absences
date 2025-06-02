@@ -20,11 +20,11 @@ public class ClasseMock implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         List<Classe> classes = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Classe classe = new Classe();
             classe.setFiliere("Filiere " + i);
-            classe.setNiveau("Niveau " + i);
-            classe.setNomClasse(classe.getNiveau() + " " + classe.getFiliere());
+            classe.setNiveau("L" + i);
+            classe.setNomClasse(classe.getNiveau() + "" + classe.getFiliere());
             classes.add(classe);
         }
         classeRepository.saveAll(classes);

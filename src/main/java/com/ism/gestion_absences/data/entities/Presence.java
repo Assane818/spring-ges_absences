@@ -1,8 +1,6 @@
 package com.ism.gestion_absences.data.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

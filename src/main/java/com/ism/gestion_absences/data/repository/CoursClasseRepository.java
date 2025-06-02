@@ -8,4 +8,5 @@ import com.ism.gestion_absences.data.entities.CoursClasse;
 
 public interface CoursClasseRepository extends MongoRepository<CoursClasse, String> {
     List<CoursClasse> findByClasseId(String classeId);
+    List<CoursClasse> findByCoursId(String coursId);
 }

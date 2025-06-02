@@ -2,6 +2,7 @@ package com.ism.gestion_absences.data.repository;
 
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ public interface EtudiantRepository extends MongoRepository<Etudiant, String> {
     Etudiant findFirstByMatricule(String matricule);
     Optional<Etudiant> findFirstByLogin(String login);
     Page<Etudiant> findByClasseId(String classeId, Pageable pageable);
+    List<Etudiant> findByClasseId(String classeId);
     Page<Etudiant> findByStatus(boolean status, Pageable pageable);
 
 }
