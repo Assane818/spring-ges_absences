@@ -46,7 +46,7 @@ GET https://gesabsences-32iz.onrender.com/api/v1/presences/etudiant/MAT5
 GET http://localhost:8080/api/v1/cours/etudiant/683c2f126ab4788eded3081b
 
 ###
-GET http://localhost:8080/api/web/v1/etudiants?page=0&size=10
+GET https://gesabsences-32iz.onrender.com/api/web/v1/etudiants/paginate?page=0&size=10
 
 ###
 GET http://localhost:8080/api/web/v1/etudiants/classe/683c2f086ab4788eded3079d
@@ -65,7 +65,7 @@ GET http://localhost:8080/api/web/v1/presences/type=PRESENT/date=2025-06-01
 
 
 ###
-GET http://localhost:8080/api/web/v1/justificatifs/683df0cb37d13f163409601d
+GET http://localhost:8080/api/web/v1/justificatifs/683e2f1a628ed412e3898b84
 
 ###
 Put https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683df0cb37d13f163409601d
@@ -81,3 +81,29 @@ GET http://localhost:8080/api/web/v1/presences/683c2f126ab4788eded3084d
 
 ###
 GET http://localhost:8080/api/web/v1/classes
+
+
+###
+POST http://localhost:8080/api/v1/justificatifs/create
+Accept: application/json
+Content-Type: multipart/form-data; boundary=---011000010111000001101001
+
+-----011000010111000001101001
+Content-Disposition: form-data; name="motif"
+
+Malade depuis 3 jours
+-----011000010111000001101001
+Content-Disposition: form-data; name="presenceId"
+
+683df0c737d13f1634095e29
+-----011000010111000001101001
+Content-Disposition: form-data; name="multipartFiles"; filename="just1.jpg"
+Content-Type: image/jpeg
+
+< C:/Users/assan/Downloads/just1.jpg
+-----011000010111000001101001
+Content-Disposition: form-data; name="multipartFiles"; filename="just2.png"
+Content-Type: image/png
+
+< C:/Users/assan/Downloads/just2.png
+-----011000010111000001101001--

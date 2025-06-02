@@ -13,8 +13,8 @@ import com.ism.gestion_absences.web.dto.Response.JustificatifOneWebResponse;
 public interface JustificatifMapper {
     Justificatif toEntity(JustificatifRequest justificatifRequest);
     @Mapping(source = "presence.id", target = "presenceId")
-    @Mapping(source = "presence.etudiant.nom", target = "nomEtudiant")
-    @Mapping(source = "presence.etudiant.prenom", target = "prenomEtudiant")
+    @Mapping(source = "presence.etudiant.nom", target = "nom")
+    @Mapping(source = "presence.etudiant.prenom", target = "prenom")
     JustificatifOneResponse toJustificatifOneResponse(Justificatif justificatif);
 
     @Mapping(source = "presence.id", target = "presenceId")
@@ -23,5 +23,6 @@ public interface JustificatifMapper {
     @Mapping(source = "presence.etudiant.matricule", target = "matricule")
     @Mapping(source = "presence.etudiant.classe.nomClasse", target = "classe")
     JustificatifOneWebResponse toJustificatifOneWebResponse(Justificatif justificatif);
+    
     Justificatif toEntity(JustificatifUpdateRequest justificatifUpdateRequest);
 }
