@@ -14,7 +14,7 @@ import lombok.Setter;
 public class PresenseAllWebResponse {
     private String id;
     private LocalDate date;
-    private TypePresence typePresence;
+    private String typePresence;
     private String matricule;
     private String nom;
     private String prenom;

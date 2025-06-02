@@ -33,7 +33,7 @@ public class EtudiantWebControllerImpl implements EtudiantWebController {
         var totalPages = etudiantResponse.getTotalPages();
         return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, etudiantResponse.getContent(),
                 new int[totalPages], etudiantResponse.getNumber(), totalPages, etudiantResponse.getTotalElements(),
-                etudiantResponse.isFirst(), etudiantResponse.isLast(), "ArticleAllResponse"), HttpStatus.OK);
+                etudiantResponse.isFirst(), etudiantResponse.isLast(), "EtudiantAllWebResponse"), HttpStatus.OK);
     }
 
     @Override
