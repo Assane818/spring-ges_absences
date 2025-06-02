@@ -45,7 +45,7 @@ public class PresenceControllerImpl implements PresenceController {
     public ResponseEntity<Map<String, Object>> getAll() {
         List<Presence> pressences = presenceService.getAll();
         List<PresenceAllResponse> presencesReponse = pressences.stream().map(presenceMapper::toPresenceAllReponse).toList();
-        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, pressences, presencesReponse), HttpStatus.OK);
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, presencesReponse, "PresenceAllResponse"), HttpStatus.OK);
     }
 
     @Override

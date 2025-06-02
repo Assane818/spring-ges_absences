@@ -78,3 +78,6 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/web/v1/presences/683c2f126ab4788eded3084d
+
+###
+GET http://localhost:8080/api/web/v1/classes

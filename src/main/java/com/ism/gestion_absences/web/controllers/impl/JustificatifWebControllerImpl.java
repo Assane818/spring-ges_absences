@@ -27,7 +27,7 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
     private final JustificatifService justificatifService;
     private final JustificatifMapper justificatifMapper;
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAllPaginate(int page, int size) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
@@ -65,6 +65,12 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
     public ResponseEntity<Boolean> delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
 }

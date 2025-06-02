@@ -29,10 +29,25 @@ public interface WebController<T> {
             description = "la liste d'objets n'existe pas"
         )
     })
-    ResponseEntity<Map<String,Object>> getAll(
+    ResponseEntity<Map<String,Object>> getAll();
+    
+    @GetMapping("/paginate")
+    @Operation(summary = "Recupere une liste d'objets paginee", description = "Retourne une liste d'objets paginee")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste d'objets paginee est retournees"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "la liste d'objets n'existe pas"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getAllPaginate(
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size
     );
+
     @GetMapping("{id}")
     @Operation(summary = "Recupere un objet a travers son id", description = "Retourne l'objet")
     @ApiResponses(value = {

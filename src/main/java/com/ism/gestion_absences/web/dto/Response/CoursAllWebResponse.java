@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Schema(name = "CoursAllResponse", description = "Ceci est le DTO qui represente la reponse de la liste des cours pour l'application mobile")
-public class CoursAllResponse {
+public class CoursAllWebResponse {
     private String id;
     private LocalDate date;
     private String nomCours;

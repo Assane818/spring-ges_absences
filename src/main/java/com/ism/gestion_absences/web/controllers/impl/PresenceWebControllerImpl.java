@@ -29,7 +29,7 @@ public class PresenceWebControllerImpl implements PresenceWebController {
     private final PresenceService presenceService;
     private final PresenceMapper presenceMapper;
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAllPaginate(int page, int size) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
@@ -96,6 +96,12 @@ public class PresenceWebControllerImpl implements PresenceWebController {
         return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, presencesReponse.getContent(),
                 new int[totalPages], presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
                 presencesReponse.isFirst(), presencesReponse.isLast(), "PresenseAllWebResponse"), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
 }

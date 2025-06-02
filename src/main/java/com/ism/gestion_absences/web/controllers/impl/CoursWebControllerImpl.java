@@ -11,7 +11,7 @@ import com.ism.gestion_absences.web.controllers.CoursWebController;
 public class CoursWebControllerImpl implements CoursWebController {
 
     @Override
-    public ResponseEntity getAll(int page, int size) {
+    public ResponseEntity getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
@@ -44,6 +44,12 @@ public class CoursWebControllerImpl implements CoursWebController {
     public ResponseEntity<Map<String, Object>> getCoursByDate(String date, int page, int size) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getCoursByDate'");
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getAllPaginate(int page, int size) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllPaginate'");
     }
 
     

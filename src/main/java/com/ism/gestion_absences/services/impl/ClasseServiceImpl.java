@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Classe;
+import com.ism.gestion_absences.data.repository.ClasseRepository;
 import com.ism.gestion_absences.services.ClasseService;
 
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ClasseServiceImpl implements ClasseService {
 
+    private final ClasseRepository classeRepository;
     @Override
     public Page<Classe> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -23,8 +25,7 @@ public class ClasseServiceImpl implements ClasseService {
 
     @Override
     public List<Classe> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return classeRepository.findAll();
     }
 
     @Override
