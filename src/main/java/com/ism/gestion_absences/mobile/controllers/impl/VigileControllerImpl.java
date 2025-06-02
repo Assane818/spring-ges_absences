@@ -13,7 +13,7 @@ import com.ism.gestion_absences.mobile.controllers.VigileController;
 public class VigileControllerImpl implements VigileController {
 
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }

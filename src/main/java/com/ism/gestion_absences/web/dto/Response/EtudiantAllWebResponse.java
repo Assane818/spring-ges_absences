@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Schema(name = "EtudiantAllResponse", description = "Ceci est un DTO qui represente la liste des etudiants")
-public class EtudiantAllResponse {
+@Schema(name = "EtudiantAllWebResponse", description = "Ceci est un DTO qui represente la liste des etudiants")
+public class EtudiantAllWebResponse {
     private String id;
     private String nom;
     private String prenom;
@@ -15,4 +15,5 @@ public class EtudiantAllResponse {
     private String classe;
     private String filiere;
     private boolean status;
+    private String role;
 }

@@ -42,21 +42,17 @@ public class PresenceControllerImpl implements PresenceController {
     private final CoursClasseService coursClasseService;
 
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<Presence> pressences = presenceService.getAllPaginate(pageable);
-        Page<PresenceAllResponse> presencesReponse = pressences.map(presenceMapper::toPresenceAllReponse);
-        var totalPages = presencesReponse.getTotalPages();
-        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, presencesReponse.getContent(),
-                new int[totalPages], presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
-                presencesReponse.isFirst(), presencesReponse.isLast(), "ArticleAllResponse"), HttpStatus.OK);
+    public ResponseEntity<Map<String, Object>> getAll() {
+        List<Presence> pressences = presenceService.getAll();
+        List<PresenceAllResponse> presencesReponse = pressences.stream().map(presenceMapper::toPresenceAllReponse).toList();
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, pressences, presencesReponse), HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<Map<String, Object>> getById(String id) {
         var presence = presenceService.getById(id);
         var presenceReponse = presenceMapper.toPresenceOneResponse(presence);
-        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, presenceReponse, "ArticleOneResponse"),
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, presenceReponse, "PresenceOneResponse"),
                 HttpStatus.OK);
     }
 
@@ -90,23 +86,17 @@ public class PresenceControllerImpl implements PresenceController {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> getByEtudiantId(String etudiantId, TypePresence type, int page,
-            int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public ResponseEntity<Map<String, Object>> getByEtudiantId(String etudiantId, TypePresence type) {
         var etudiant = etudiantService.getById(etudiantId);
         if (etudiant == null) {
             return new ResponseEntity<>(
                     RestResponse.response(HttpStatus.NOT_FOUND, "Etudiant not found", "ErrorResponse"),
                     HttpStatus.NOT_FOUND);
         }
-        Page<Presence> pressences = presenceService.getByEtudiantId(etudiantId, type, pageable);
+        List<Presence> pressences = presenceService.getByEtudiantId(etudiantId, type);
         EtudiantOneResponse etudiantResponse = etudiantMapper.toEtudiantOneResponse(etudiant);
-        Page<PresenceAllResponse> presencesReponse = pressences.map(presenceMapper::toPresenceAllReponse);
-        var totalPages = presencesReponse.getTotalPages();
-        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK,
-                new EtudiantAndPresencesResponse(etudiantResponse, presencesReponse.getContent()), new int[totalPages],
-                presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
-                presencesReponse.isFirst(), presencesReponse.isLast(), "ArticleAllResponse"), HttpStatus.OK);
+        List<PresenceAllResponse> presencesReponse = pressences.stream().map(presenceMapper::toPresenceAllReponse).toList();
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, new EtudiantAndPresencesResponse(etudiantResponse, presencesReponse), "EtudiantAndPresencesResponse"), HttpStatus.OK);
     }
 
     @Override

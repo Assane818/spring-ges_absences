@@ -1,5 +1,6 @@
 package com.ism.gestion_absences.services.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -64,8 +65,18 @@ public class PresenceServiceImpl implements PresenceService {
     }
 
     @Override
+    public List<Presence> getByEtudiantId(String etudiantId, TypePresence type) {
+        return presenceRepository.findByEtudiantIdAndTypePresence(etudiantId, type);
+    }
+
+    @Override
     public Page<Presence> getByCoursIdAndTypePresence(String coursId, TypePresence type, Pageable pageable) {
         return presenceRepository.findByCoursIdAndTypePresence(coursId, type, pageable);
+    }
+
+    @Override
+    public Page<Presence> getByTypePresenceAndDate(LocalDate date, TypePresence type, Pageable pageable) {
+        return presenceRepository.findByTypePresenceAndDate(type, date, pageable);
     }
 
 }

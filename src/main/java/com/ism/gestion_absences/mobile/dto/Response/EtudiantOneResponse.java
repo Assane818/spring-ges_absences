@@ -14,4 +14,5 @@ public class EtudiantOneResponse {
     private String matricule;
     private String classe;
     private boolean status;
+    private String role;
 }

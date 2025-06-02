@@ -27,7 +27,7 @@ public class CoursControllerImpl implements CoursController {
     private final EtudiantService etudiantService;
     private final CoursMapper coursMapper;
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
@@ -57,8 +57,11 @@ public class CoursControllerImpl implements CoursController {
     }
 
     @Override
-    public ResponseEntity<Map<String, Object>> getCoursDayByEtudiant(String id) {
+    public ResponseEntity<Map<String, Object>> getCoursByEtudiant(String id, LocalDate date) {
         List<Cours> coursList = new ArrayList<>();
+        if (date == null) {
+            date = LocalDate.now();
+        }
         var etudiant = etudiantService.getById(id);
         if (etudiant == null) {
             return new ResponseEntity<>(
@@ -67,7 +70,7 @@ public class CoursControllerImpl implements CoursController {
         }
         var coursClasses = coursClasseService.getByClasseId(etudiant.getClasse().getId());
         for (var coursClasse : coursClasses) {
-            if (coursClasse.getCours().getDate().equals(LocalDate.now())) {
+            if (coursClasse.getCours().getDate().equals(date)) {
                 coursList.add(coursClasse.getCours());
             }
         }

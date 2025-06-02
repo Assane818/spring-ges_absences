@@ -29,8 +29,6 @@ public interface Controller<T> {
         )
     })
     ResponseEntity<Map<String,Object>> getAll(
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "5") int size
     );
     @GetMapping("{id}")
     @Operation(summary = "Recupere un objet a travers son id", description = "Retourne l'objet")

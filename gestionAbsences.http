@@ -1,11 +1,11 @@
 ###
-GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/1
+GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/683c2f126ab4788eded3081b
 
 ###
-GET http://localhost:8080/api/v1/etudiants/6837b178f156fc62d7fc558f
+GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/6837b178f156fc62d7fc558f
 
 ###
-GET http://localhost:8080/api/v1/etudiants/matricule/MAT10
+GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/matricule/MAT10
 
 ###
 POST http://localhost:8080/api/v1/auth/login
@@ -13,18 +13,18 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "login": "admin0@gmail.com",
+  "login": "etudiant0@gmail.com",
   "password": "passer"
 }
 
 ###
-GET http://localhost:8080/api/v1/presences/type=ABSENT
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/type=ABSENT
 
 ###
-GET http://localhost:8080/api/v1/presences/68388d5eee3dc7deb1b87155
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/68388d5eee3dc7deb1b87155
 
 ###
-Post http://localhost:8080/api/v1/justificatifs
+Post https://gesabsences-32iz.onrender.com/api/v1/justificatifs
 Accept: application/json
 Content-Type: application/json
 
@@ -34,37 +34,47 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/v1/presences/type=ABSENT/etudiant/683b268ad319c7cdc06d8f0c
+GET http://localhost:8080/api/v1/presences/type=PRESENT/etudiant/683c2f126ab4788eded3081b
 
 ###
-GET http://localhost:8080/api/v1/presences/etudiant/MAT5
+GET http://localhost:8080/api/v1/presences/683c2f126ab4788eded3084d
 
 ###
-GET http://localhost:8080/api/v1/cours/etudiant/683b3ca7c852f59d3265d103
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/etudiant/MAT5
+
+###
+GET http://localhost:8080/api/v1/cours/etudiant/683c2f126ab4788eded3081b
 
 ###
 GET http://localhost:8080/api/web/v1/etudiants?page=0&size=10
 
 ###
-GET http://localhost:8080/api/web/v1/etudiants/classe/683b3c9ec852f59d3265d08b
+GET http://localhost:8080/api/web/v1/etudiants/classe/683c2f086ab4788eded3079d
 
 ###
-GET http://localhost:8080/api/web/v1/etudiants/status/false
+GET http://localhost:8080/api/web/v1/etudiants/status/true
 
 ###
 GET http://localhost:8080/api/web/v1/presences/type=ABSENT
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683b792cdee25772c419cef7
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683c2f096ab4788eded307a3
 
 ###
-GET http://localhost:8080/api/web/v1/justificatifs/683b7934dee25772c419cfa7
+GET http://localhost:8080/api/web/v1/presences/type=PRESENT/date=2025-06-01
+
 
 ###
-Put http://localhost:8080/api/web/v1/justificatifs/683b7934dee25772c419cfa7
+GET https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683b7934dee25772c419cfa7
+
+###
+Put https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683c2f156ab4788eded308b1
 Accept: application/json
 Content-Type: application/json
 
 {
   "validation": true
 }
+
+###
+GET http://localhost:8080/api/web/v1/presences/683c2f126ab4788eded3084d

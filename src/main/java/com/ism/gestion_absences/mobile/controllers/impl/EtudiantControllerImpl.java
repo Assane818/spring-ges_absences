@@ -21,7 +21,7 @@ public class EtudiantControllerImpl implements EtudiantController {
     private final EtudiantService etudiantService;
     private final EtudiantMapper etudiantMapper;
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }

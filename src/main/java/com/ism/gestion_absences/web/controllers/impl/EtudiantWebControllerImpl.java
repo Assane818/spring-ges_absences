@@ -14,7 +14,7 @@ import com.ism.gestion_absences.data.entities.Etudiant;
 import com.ism.gestion_absences.services.EtudiantService;
 import com.ism.gestion_absences.utils.mappers.EtudiantMapper;
 import com.ism.gestion_absences.web.controllers.EtudiantWebController;
-import com.ism.gestion_absences.web.dto.Response.EtudiantAllResponse;
+import com.ism.gestion_absences.web.dto.Response.EtudiantAllWebResponse;
 import com.ism.gestion_absences.web.dto.Response.RestResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -29,7 +29,7 @@ public class EtudiantWebControllerImpl implements EtudiantWebController {
     public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Etudiant> etudiants = etudiantService.getAllPaginate(pageable);
-        Page<EtudiantAllResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
+        Page<EtudiantAllWebResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
         var totalPages = etudiantResponse.getTotalPages();
         return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, etudiantResponse.getContent(),
                 new int[totalPages], etudiantResponse.getNumber(), totalPages, etudiantResponse.getTotalElements(),
@@ -64,11 +64,11 @@ public class EtudiantWebControllerImpl implements EtudiantWebController {
     public ResponseEntity<Map<String, Object>> getByClasseId(String classeId, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Etudiant> etudiants = etudiantService.getByClasseId(classeId, pageable);
-        Page<EtudiantAllResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
+        Page<EtudiantAllWebResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
         var totalPages = etudiantResponse.getTotalPages();
         return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, etudiantResponse.getContent(),
                 new int[totalPages], etudiantResponse.getNumber(), totalPages, etudiantResponse.getTotalElements(),
-                etudiantResponse.isFirst(), etudiantResponse.isLast(), "ArticleAllResponse"), HttpStatus.OK);
+                etudiantResponse.isFirst(), etudiantResponse.isLast(), "EtudiantAllWebResponse"), HttpStatus.OK);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class EtudiantWebControllerImpl implements EtudiantWebController {
         Pageable pageable = PageRequest.of(page, size);
         boolean statusBoolean = Boolean.parseBoolean(status);
         Page<Etudiant> etudiants = etudiantService.getByStatus(statusBoolean, pageable);
-        Page<EtudiantAllResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
+        Page<EtudiantAllWebResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
         var totalPages = etudiantResponse.getTotalPages();
         return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, etudiantResponse.getContent(),
                 new int[totalPages], etudiantResponse.getNumber(), totalPages, etudiantResponse.getTotalElements(),

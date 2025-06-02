@@ -29,7 +29,7 @@ public class JustificatifControllerImpl implements JustificatifController {
     private final PresenceService presenceService;
     private final JustificatifMapper justificatifMapper;
     @Override
-    public ResponseEntity<Map<String, Object>> getAll(int page, int size) {
+    public ResponseEntity<Map<String, Object>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }

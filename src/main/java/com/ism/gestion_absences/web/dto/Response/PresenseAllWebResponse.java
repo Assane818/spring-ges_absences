@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 @Schema(name = "PresenseAllWebResponse", description = "Ceci est un DTO qui represente la reponse de la liste des presences de tous les etudiants")
 public class PresenseAllWebResponse {
+    private String id;
     private LocalDate date;
     private TypePresence typePresence;
     private String matricule;

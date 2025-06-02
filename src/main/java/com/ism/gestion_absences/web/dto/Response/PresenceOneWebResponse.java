@@ -1,8 +1,9 @@
 
-package com.ism.gestion_absences.mobile.dto.Response;
+package com.ism.gestion_absences.web.dto.Response;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import com.ism.gestion_absences.data.enums.TypePresence;
 
@@ -12,12 +13,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Schema(name = "PresenceOneResponse", description = "Ceci est le DTO qui represente la reponse de la presenece d'un etudiant")
-public class PresenceOneResponse {
+@Schema(name = "PresenceOneWebResponse", description = "Ceci est le DTO qui represente la reponse de la presenece d'un etudiant format web")
+public class PresenceOneWebResponse {
     private String id;
     private LocalDate date;
     private String cours;
     private TypePresence typePresence;
     private LocalTime heureDebut;
     private LocalTime heureFin;
+    private List<String> files;
 }

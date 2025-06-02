@@ -1,5 +1,6 @@
 package com.ism.gestion_absences.web.controllers;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,25 @@ public interface PresenceWebController extends WebController<Presence> {
     ResponseEntity<Map<String,Object>> getByCoursAndType(
         @PathVariable String type,
         @PathVariable String coursId,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size
+    );
+
+    @GetMapping("/type={type}/date={date}")
+    @Operation(summary = "Recupere une liste de presence a travers le type et la date", description = "Retourne une liste de presences")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste de presences est retourne"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Le lien n'est pas valide"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getByTypeAndDate(
+        @PathVariable String type,
+        @PathVariable LocalDate date,
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size
     );
