@@ -15,5 +15,6 @@ public interface PresenceService extends Service<Presence> {
     Page<Presence> getByEtudiantId(String etudiantId, TypePresence type, Pageable pageable);
     Page<Presence> getByCoursIdAndTypePresence(String coursId, TypePresence type, Pageable pageable);
     Page<Presence> getByTypePresenceAndDate(LocalDate date, TypePresence type, Pageable pageable);
+    Presence getByEtudiantIdAndCoursId(String etudiantId, String coursId);
     
 }

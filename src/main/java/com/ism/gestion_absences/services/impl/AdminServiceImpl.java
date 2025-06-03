@@ -10,6 +10,7 @@ import com.ism.gestion_absences.data.entities.Admin;
 import com.ism.gestion_absences.data.entities.Cours;
 import com.ism.gestion_absences.data.entities.Justificatif;
 import com.ism.gestion_absences.data.enums.TypePresence;
+import com.ism.gestion_absences.data.repository.AdminRepository;
 import com.ism.gestion_absences.services.AdminService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
 
+    private final AdminRepository adminRepository;
     @Override
     public Page<Admin> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -26,8 +28,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Admin> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return adminRepository.findAll();
     }
 
     @Override
@@ -44,8 +45,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin getById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        return adminRepository.findById(id).orElse(null);
     }
 
     @Override

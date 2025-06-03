@@ -68,12 +68,13 @@ GET http://localhost:8080/api/web/v1/presences/type=PRESENT/date=2025-06-01
 GET http://localhost:8080/api/web/v1/justificatifs/683e2f1a628ed412e3898b84
 
 ###
-Put https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683df0cb37d13f163409601d
+Put https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683e4d44e7a0f555d7e72ba1
 Accept: application/json
 Content-Type: application/json
 
 {
-  "validation": true
+  "validation": true,
+  "adminId": "683de8b4252c3135dafe36fd"
 }
 
 ###

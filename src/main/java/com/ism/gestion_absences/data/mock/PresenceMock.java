@@ -7,11 +7,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import com.ism.gestion_absences.data.entities.Admin;
 import com.ism.gestion_absences.data.entities.Cours;
 import com.ism.gestion_absences.data.entities.CoursClasse;
 import com.ism.gestion_absences.data.entities.Etudiant;
 import com.ism.gestion_absences.data.entities.Presence;
 import com.ism.gestion_absences.data.enums.TypePresence;
+import com.ism.gestion_absences.data.repository.AdminRepository;
 import com.ism.gestion_absences.data.repository.CoursClasseRepository;
 import com.ism.gestion_absences.data.repository.EtudiantRepository;
 import com.ism.gestion_absences.data.repository.PresenceRepository;

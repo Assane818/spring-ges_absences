@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class JustificatifUpdateRequest {
     private boolean validation;
+    private String adminId;
 }

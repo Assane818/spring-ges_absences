@@ -16,7 +16,7 @@ import com.ism.gestion_absences.data.repository.PresenceRepository;
 import lombok.RequiredArgsConstructor;
 
 // @Component
-// @Order(3)
+// @Order(2)
 @RequiredArgsConstructor
 public class JustificatifMock implements CommandLineRunner {
     private final JustificatifRepository justificatifRepository;

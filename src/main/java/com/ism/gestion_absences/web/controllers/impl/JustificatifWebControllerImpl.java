@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ism.gestion_absences.data.entities.Justificatif;
+import com.ism.gestion_absences.services.AdminService;
 import com.ism.gestion_absences.services.JustificatifService;
+import com.ism.gestion_absences.services.PresenceService;
 import com.ism.gestion_absences.utils.mappers.JustificatifMapper;
 import com.ism.gestion_absences.web.controllers.JustificatifWebController;
 import com.ism.gestion_absences.web.dto.Request.JustificatifUpdateRequest;
@@ -26,6 +28,8 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
 
     private final JustificatifService justificatifService;
     private final JustificatifMapper justificatifMapper;
+    private final AdminService adminService;
+    private final PresenceService presenceService;
     @Override
     public ResponseEntity<Map<String, Object>> getAllPaginate(int page, int size) {
         // TODO Auto-generated method stub
@@ -52,8 +56,11 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
             fields.forEach(fieldError->errors.put(fieldError.getField().toLowerCase(), fieldError.getDefaultMessage()));
             return new ResponseEntity<>(RestResponse.response(HttpStatus.BAD_REQUEST, errors, "Map<String, String>"), HttpStatus.BAD_REQUEST);
         } else {
+            var admin = adminService.getById(object.getAdminId());
             var justificatif = justificatifMapper.toEntity(object);
             var just = justificatifService.update(id, justificatif);
+            just.getPresence().setAdmin(admin);
+            presenceService.update(just.getPresence().getId(), just.getPresence());
             if (just == null) {
                 return new ResponseEntity<>(RestResponse.response(HttpStatus.NOT_FOUND, null, "CategorieAllResponse"), HttpStatus.NOT_FOUND);
             }

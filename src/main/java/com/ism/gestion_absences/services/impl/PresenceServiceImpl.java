@@ -39,8 +39,11 @@ public class PresenceServiceImpl implements PresenceService {
 
     @Override
     public Presence update(String id, Presence t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        Presence presence = presenceRepository.findById(id).orElse(null);
+        if (presence != null) {
+            presence.setAdmin(t.getAdmin());
+        }
+        return presenceRepository.save(presence);
     }
 
     @Override
@@ -77,6 +80,11 @@ public class PresenceServiceImpl implements PresenceService {
     @Override
     public Page<Presence> getByTypePresenceAndDate(LocalDate date, TypePresence type, Pageable pageable) {
         return presenceRepository.findByTypePresenceAndDate(type, date, pageable);
+    }
+
+    @Override
+    public Presence getByEtudiantIdAndCoursId(String etudiantId, String coursId) {
+        return presenceRepository.findByEtudiantIdAndCoursId(etudiantId, coursId);
     }
 
 }
