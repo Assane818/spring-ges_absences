@@ -73,4 +73,9 @@ public class JustificatifServiceImpl implements JustificatifService {
         return justificatifRepository.save(justificatif);
     }
 
+    @Override
+    public Justificatif getByPresenceId(String presenceId) {
+        return justificatifRepository.findByPresenceId(presenceId);
+    }
+
 }

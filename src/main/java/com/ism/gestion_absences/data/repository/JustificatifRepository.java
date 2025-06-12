@@ -8,4 +8,5 @@ import com.ism.gestion_absences.data.entities.Justificatif;
 
 public interface JustificatifRepository extends MongoRepository<Justificatif, String> {
     Page<Justificatif> findAll(Pageable pageable);
+    Justificatif findByPresenceId(String presenceId);
 }

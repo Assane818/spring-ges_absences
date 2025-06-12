@@ -73,4 +73,62 @@ public interface PresenceWebController extends WebController<Presence> {
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size
     );
+
+    @GetMapping("/justify/{justify}")
+    @Operation(summary = "Recupere les presences par justifiee ou non", description = "Retourne la liste de presence par rapport a la justification")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste des presences par justifiee ou non est retourne"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Le lien n'est pas valide"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getByJustify(@PathVariable String justify,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size
+    );
+
+    @GetMapping("/type={type}/cours={coursId}/date={date}")
+    @Operation(summary = "Recupere une liste de presence a travers le type, le cours et la date", description = "Retourne une liste de presences")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste de presences est retourne"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Le lien n'est pas valide"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getByTypeAndCoursAndDate(
+        @PathVariable String type,
+        @PathVariable String coursId,
+        @PathVariable LocalDate date,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size
+    );
+
+    @GetMapping("/type={type}/cours={coursId}/etat={etat}/date={date}")
+    @Operation(summary = "Recupere une liste de presence a travers le type, le cours, l'etat et la date", description = "Retourne une liste de presences")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste de presences est retourne"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Le lien n'est pas valide"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getByTypeAndCoursAndEtatAndDate(
+        @PathVariable String type,
+        @PathVariable String coursId,
+        @PathVariable String etat,
+        @PathVariable LocalDate date,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size
+    );
 }

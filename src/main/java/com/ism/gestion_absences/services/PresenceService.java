@@ -1,3 +1,4 @@
+
 package com.ism.gestion_absences.services;
 
 import java.time.LocalDate;
@@ -16,5 +17,6 @@ public interface PresenceService extends Service<Presence> {
     Page<Presence> getByCoursIdAndTypePresence(String coursId, TypePresence type, Pageable pageable);
     Page<Presence> getByTypePresenceAndDate(LocalDate date, TypePresence type, Pageable pageable);
     Presence getByEtudiantIdAndCoursId(String etudiantId, String coursId);
+    Page<Presence> getByTypePresenceAndDateAndCoursId(TypePresence type, String coursId, LocalDate date, Pageable pageable);
     
 }

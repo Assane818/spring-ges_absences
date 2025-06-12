@@ -80,4 +80,11 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
+    @Override
+    public ResponseEntity<Map<String, Object>> getByPresenceId(String presenceId) {
+        var justificatif = justificatifService.getByPresenceId(presenceId);
+        var justificatifResponse = justificatifMapper.toJustificatifOneWebResponse(justificatif);
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.OK, justificatifResponse, "JustificatifOneWebResponse"), HttpStatus.OK);
+    }
+
 }

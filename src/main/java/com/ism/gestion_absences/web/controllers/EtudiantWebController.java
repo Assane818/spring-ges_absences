@@ -51,4 +51,23 @@ public interface EtudiantWebController extends WebController<Etudiant> {
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "5") int size
     );
+
+    @GetMapping("/classe/{classeId}/status/{status}")
+    @Operation(summary = "Recupere les etudiants par classe et par status", description = "Retourne la liste des etudiants par rapport a sa classe et status")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "la liste des etudiants par classe et status est retourne"
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "la classe n'existe pas ou ne contient pas d'etudiants"
+        )
+    })
+    ResponseEntity<Map<String,Object>> getByClasseAndStatus(@PathVariable String classeId ,@PathVariable String status,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "5") int size
+    );
 }
+
+//presence type etat date et cours

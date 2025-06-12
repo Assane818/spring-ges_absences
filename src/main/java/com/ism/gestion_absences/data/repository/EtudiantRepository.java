@@ -17,5 +17,6 @@ public interface EtudiantRepository extends MongoRepository<Etudiant, String> {
     Page<Etudiant> findByClasseId(String classeId, Pageable pageable);
     List<Etudiant> findByClasseId(String classeId);
     Page<Etudiant> findByStatus(boolean status, Pageable pageable);
-
+    Page<Etudiant> findByClasseIdAndStatus(String classeId, boolean status, Pageable pageable);
+    
 }

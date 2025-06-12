@@ -1,9 +1,11 @@
 package com.ism.gestion_absences.web.controllers.impl;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -102,6 +104,56 @@ public class PresenceWebControllerImpl implements PresenceWebController {
     public ResponseEntity<Map<String, Object>> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getByJustify(String justify, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Boolean isJustify = Boolean.parseBoolean(justify);
+        Page<Presence> allPresences = presenceService.getAllPaginate(pageable);
+        List<Presence> filteredContent = allPresences.getContent().stream()
+            .filter(p -> (p.getJustificatif() == null) == isJustify)
+            .toList();
+        Page<Presence> pressences = new PageImpl<>(filteredContent, pageable, filteredContent.size());
+        Page<PresenseAllWebResponse> presencesReponse = pressences.map(presenceMapper::toPresenseAllWebResponse);
+        var totalPages = presencesReponse.getTotalPages();
+        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, presencesReponse.getContent(),
+                new int[totalPages], presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
+                presencesReponse.isFirst(), presencesReponse.isLast(), "PresenseAllWebResponse"), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getByTypeAndCoursAndDate(String type, String coursId, LocalDate date, int page, int size) {
+        if (date == null) {
+            date = LocalDate.now();
+        }
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Presence> pressences = presenceService.getByTypePresenceAndDateAndCoursId(TypePresence.valueOf(type), coursId, date, pageable);
+        Page<PresenseAllWebResponse> presencesReponse = pressences.map(presenceMapper::toPresenseAllWebResponse);
+        var totalPages = presencesReponse.getTotalPages();
+        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, presencesReponse.getContent(),
+                new int[totalPages], presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
+                presencesReponse.isFirst(), presencesReponse.isLast(), "PresenseAllWebResponse"), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getByTypeAndCoursAndEtatAndDate(String type, String coursId, String etat,
+            LocalDate date, int page, int size) {
+        if (date == null) {
+            date = LocalDate.now();
+        }
+        Boolean isJustify = Boolean.parseBoolean(etat);
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Presence> allPresences = presenceService.getByTypePresenceAndDateAndCoursId(TypePresence.valueOf(type), coursId, date, pageable);
+        List<Presence> filteredContent = allPresences.getContent().stream()
+            .filter(p -> (p.getJustificatif() == null) == isJustify)
+            .toList();
+        Page<Presence> pressences = new PageImpl<>(filteredContent, pageable, filteredContent.size());
+        Page<PresenseAllWebResponse> presencesReponse = pressences.map(presenceMapper::toPresenseAllWebResponse);
+        var totalPages = presencesReponse.getTotalPages();
+        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, presencesReponse.getContent(),
+                new int[totalPages], presencesReponse.getNumber(), totalPages, presencesReponse.getTotalElements(),
+                presencesReponse.isFirst(), presencesReponse.isLast(), "PresenseAllWebResponse"), HttpStatus.OK);
     }
 
 }

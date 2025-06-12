@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
-@RequestMapping("/api/web/v1/justificatifs")
+@RequestMapping("/api/web/v1/cours")
 public interface CoursWebController extends WebController<Cours> {
     @GetMapping("/date/{date}")
     @Operation(summary = "Recupere les cours d'une date", description = "Retourne les cours d'une date")

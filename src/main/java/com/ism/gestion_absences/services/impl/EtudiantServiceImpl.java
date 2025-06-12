@@ -64,5 +64,10 @@ public class EtudiantServiceImpl implements EtudiantService {
     public Page<Etudiant> getByStatus(boolean status, Pageable pageable) {
         return etudiantRepository.findByStatus(status, pageable);
     }
+
+    @Override
+    public Page<Etudiant> getByClasseIdAndStatus(String classeId, boolean status, Pageable pageable) {
+        return etudiantRepository.findByClasseIdAndStatus(classeId, status, pageable);
+    }
     
 }

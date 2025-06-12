@@ -25,8 +25,7 @@ public class CoursServiceImpl implements CoursService {
 
     @Override
     public List<Cours> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return coursService.getAll();
     }
 
     @Override

@@ -88,5 +88,18 @@ public class EtudiantWebControllerImpl implements EtudiantWebController {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
+
+    @Override
+    public ResponseEntity<Map<String, Object>> getByClasseAndStatus(String classeId, String status, int page,
+            int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        boolean statusBoolean = Boolean.parseBoolean(status);
+        Page<Etudiant> etudiants = etudiantService.getByClasseIdAndStatus(classeId, statusBoolean, pageable);
+        Page<EtudiantAllWebResponse> etudiantResponse = etudiants.map(etudiantMapper::toEtudiantAllResponse);
+        var totalPages = etudiantResponse.getTotalPages();
+        return new ResponseEntity<>(RestResponse.responsePaginate(HttpStatus.OK, etudiantResponse.getContent(),
+                new int[totalPages], etudiantResponse.getNumber(), totalPages, etudiantResponse.getTotalElements(),
+                etudiantResponse.isFirst(), etudiantResponse.isLast(), "EtudiantAllWebResponse"), HttpStatus.OK);
+    }
     
 }

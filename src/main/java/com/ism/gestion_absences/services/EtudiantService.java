@@ -10,4 +10,5 @@ public interface EtudiantService extends Service<Etudiant> {
     Etudiant getByMatricule(String matricule);
     Page<Etudiant> getByClasseId(String classeId, Pageable pageable);
     Page<Etudiant> getByStatus(boolean status, Pageable pageable);
+    Page<Etudiant> getByClasseIdAndStatus(String classeId, boolean status, Pageable pageable);
 }

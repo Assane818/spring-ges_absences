@@ -8,12 +8,12 @@ GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/6837b178f156fc62d7fc5
 GET https://gesabsences-32iz.onrender.com/api/v1/etudiants/matricule/MAT10
 
 ###
-POST http://localhost:8080/api/v1/auth/login
+POST https://gesabsences-32iz.onrender.com/api/v1/auth/login
 Accept: application/json
 Content-Type: application/json
 
 {
-  "login": "etudiant0@gmail.com",
+  "login": "vigile0@gmail.com",
   "password": "passer"
 }
 
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/v1/presences/type=PRESENT/etudiant/683c2f126ab4788eded3081b
+GET http://localhost:8080/api/v1/presences/type=PRESENT/etudiant/683de8bf252c3135dafe370e
 
 ###
 GET http://localhost:8080/api/v1/presences/683c2f126ab4788eded3084d
@@ -43,7 +43,7 @@ GET http://localhost:8080/api/v1/presences/683c2f126ab4788eded3084d
 GET https://gesabsences-32iz.onrender.com/api/v1/presences/etudiant/MAT5
 
 ###
-GET http://localhost:8080/api/v1/cours/etudiant/683c2f126ab4788eded3081b
+GET https://gesabsences-32iz.onrender.com/api/v1/cours/etudiant/683de8bf252c3135dafe370e
 
 ###
 GET https://gesabsences-32iz.onrender.com/api/web/v1/etudiants/paginate?page=0&size=10
@@ -58,14 +58,14 @@ GET http://localhost:8080/api/web/v1/etudiants/status/true
 GET http://localhost:8080/api/web/v1/presences/type=ABSENT
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683c2f096ab4788eded307a3
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683de8b6252c3135dafe3708
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=PRESENT/date=2025-06-01
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/date=2025-06-06
 
 
 ###
-GET http://localhost:8080/api/web/v1/justificatifs/683e2f1a628ed412e3898b84
+GET https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683e574a0061f2f63a4813ca
 
 ###
 Put https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683e4d44e7a0f555d7e72ba1
@@ -85,7 +85,7 @@ GET http://localhost:8080/api/web/v1/classes
 
 
 ###
-POST http://localhost:8080/api/v1/justificatifs/create
+POST https://gesabsences-32iz.onrender.com/api/v1/justificatifs/create
 Accept: application/json
 Content-Type: multipart/form-data; boundary=---011000010111000001101001
 
@@ -96,7 +96,7 @@ Malade depuis 3 jours
 -----011000010111000001101001
 Content-Disposition: form-data; name="presenceId"
 
-683df0c737d13f1634095e29
+683e4d3ae7a0f555d7e728b3
 -----011000010111000001101001
 Content-Disposition: form-data; name="multipartFiles"; filename="just1.jpg"
 Content-Type: image/jpeg
@@ -108,3 +108,21 @@ Content-Type: image/png
 
 < C:/Users/assan/Downloads/just2.png
 -----011000010111000001101001--
+
+###
+GET http://localhost:8080/api/web/v1/etudiants/classe/683de8b4252c3135dafe36fb/status/true
+
+###
+GET http://localhost:8080/api/web/v1/cours
+
+###
+GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e728b3
+
+###
+GET http://localhost:8080/api/web/v1/presences/justify/true
+
+###
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/date=2025-06-06
+
+###
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=true/date=2025-06-02
