@@ -13,7 +13,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "login": "vigile0@gmail.com",
+  "login": "admin0@gmail.com",
   "password": "passer"
 }
 
@@ -40,10 +40,10 @@ GET http://localhost:8080/api/v1/presences/type=PRESENT/etudiant/683de8bf252c313
 GET http://localhost:8080/api/v1/presences/683c2f126ab4788eded3084d
 
 ###
-GET https://gesabsences-32iz.onrender.com/api/v1/presences/etudiant/MAT5
+GET http://localhost:8080/api/v1/presences/etudiant/MAT5
 
 ###
-GET https://gesabsences-32iz.onrender.com/api/v1/cours/etudiant/683de8bf252c3135dafe370e
+GET https://gesabsences-32iz.onrender.com/api/v1/cours/etudiant/683de8bf252c3135dafe3713?date=2025-06-13
 
 ###
 GET https://gesabsences-32iz.onrender.com/api/web/v1/etudiants/paginate?page=0&size=10
@@ -55,7 +55,7 @@ GET http://localhost:8080/api/web/v1/etudiants/classe/683c2f086ab4788eded3079d
 GET http://localhost:8080/api/web/v1/etudiants/status/true
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT
+GET https://gesabsences-32iz.onrender.com/api/web/v1/presences/type=PRESENT
 
 ###
 GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683de8b6252c3135dafe3708
@@ -113,7 +113,7 @@ Content-Type: image/png
 GET http://localhost:8080/api/web/v1/etudiants/classe/683de8b4252c3135dafe36fb/status/true
 
 ###
-GET http://localhost:8080/api/web/v1/cours
+GET https://gesabsences-32iz.onrender.com/api/web/v1/cours
 
 ###
 GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e728b3
@@ -122,7 +122,10 @@ GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e7
 GET http://localhost:8080/api/web/v1/presences/justify/true
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/date=2025-06-06
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/date=2025-06-11
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=true/date=2025-06-02
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=true/date=2025-06-11
+
+###
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/type=RETARD/etudiant/683de8bf252c3135dafe3739

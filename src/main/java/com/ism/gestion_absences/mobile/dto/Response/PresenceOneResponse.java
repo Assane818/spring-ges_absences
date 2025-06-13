@@ -16,6 +16,9 @@ import lombok.Setter;
 public class PresenceOneResponse {
     private String id;
     private LocalDate date;
+    private String nom;
+    private String prenom;
+    private String matricule;
     private String cours;
     private TypePresence typePresence;
     private LocalTime heureDebut;
