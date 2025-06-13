@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ism.gestion_absences.data.entities.Cours;
+import com.ism.gestion_absences.data.repository.CoursRepository;
 import com.ism.gestion_absences.services.CoursService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CoursServiceImpl implements CoursService {
 
-    private CoursService coursService;
+    private final CoursRepository coursRepository;
     @Override
     public Page<Cours> getAllPaginate(Pageable pageable) {
         // TODO Auto-generated method stub
@@ -25,7 +26,7 @@ public class CoursServiceImpl implements CoursService {
 
     @Override
     public List<Cours> getAll() {
-        return coursService.getAll();
+        return coursRepository.findAll();
     }
 
     @Override
@@ -54,7 +55,7 @@ public class CoursServiceImpl implements CoursService {
 
     @Override
     public Page<Cours> getByDate(LocalDate date, Pageable pageable) {
-        return coursService.getByDate(date, pageable);
+        return coursRepository.findByDate(date, pageable);
     }
 
 }
