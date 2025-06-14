@@ -111,10 +111,6 @@ public class PresenceControllerImpl implements PresenceController {
         var coursClasses = coursClasseService.getByClasseId(etudiant.getClasse().getId());
         Presence presence = new Presence();
         presence.setEtudiant(etudiant);
-
-        if (!etudiant.isStatus()) {
-            presence.setTypePresence(TypePresence.ABSENT);
-        } else {
             // Récupérer les cours d’aujourd’hui
             List<CoursClasse> coursDuJour = coursClasses.stream()
                     .filter(cc -> LocalDate.now().equals(cc.getCours().getDate()))
@@ -130,8 +126,9 @@ public class PresenceControllerImpl implements PresenceController {
                 var heureDebut = coursCible.getCours().getHeureDebut();
                 var heureFin = coursCible.getCours().getHeureFin();
                 var now = LocalTime.now();
-
-                if (now.isAfter(heureDebut) && now.isBefore(heureFin)) {
+                if (!etudiant.isStatus()) {
+                    presence.setTypePresence(TypePresence.ABSENT);
+                } else if (now.isAfter(heureDebut) && now.isBefore(heureFin)) {
                     if (now.isBefore(heureDebut.plusMinutes(15))) {
                         presence.setTypePresence(TypePresence.PRESENT);
                     } else {
@@ -145,15 +142,13 @@ public class PresenceControllerImpl implements PresenceController {
                 presence.setCours(coursCible.getCours());
             } else {
                 return new ResponseEntity<>(
-                        RestResponse.response(HttpStatus.NOT_FOUND, null, "ErrorResponse"),
-                        HttpStatus.NOT_FOUND);
-            }
-
+                        RestResponse.response(HttpStatus.OK, null, "PresenceOneResponse"),
+                        HttpStatus.OK);
         }
         presence.setDate(LocalDate.now());
 
         presenceService.create(presence);
-        return new ResponseEntity<>(RestResponse.response(HttpStatus.CREATED, presenceMapper.toPresenceOneResponse(presence), "SuccessResponse"),
+        return new ResponseEntity<>(RestResponse.response(HttpStatus.CREATED, presenceMapper.toPresenceOneResponse(presence), "PresenceOneResponse"),
                 HttpStatus.CREATED);
     }
 
