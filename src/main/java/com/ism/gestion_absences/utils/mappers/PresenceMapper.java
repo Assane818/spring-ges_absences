@@ -30,5 +30,8 @@ public interface PresenceMapper {
     @Mapping(source = "cours.nomCours", target = "cours")
     @Mapping(source = "cours.heureDebut", target = "heureDebut")
     @Mapping(source = "cours.heureFin", target = "heureFin")
+    @Mapping(source = "etudiant.matricule", target = "matricule")
+    @Mapping(source = "etudiant.nom", target = "nom")
+    @Mapping(source = "etudiant.prenom", target = "prenom")
     PresenceOneWebResponse toPresenceOneWebResponse(Presence presence);
 }

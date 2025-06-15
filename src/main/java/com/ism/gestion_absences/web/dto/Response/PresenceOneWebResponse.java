@@ -3,7 +3,6 @@ package com.ism.gestion_absences.web.dto.Response;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 import com.ism.gestion_absences.data.enums.TypePresence;
 
@@ -17,9 +16,11 @@ import lombok.Setter;
 public class PresenceOneWebResponse {
     private String id;
     private LocalDate date;
+    private String nom;
+    private String prenom;
+    private String matricule;
     private String cours;
     private TypePresence typePresence;
     private LocalTime heureDebut;
     private LocalTime heureFin;
-    private List<String> files;
 }

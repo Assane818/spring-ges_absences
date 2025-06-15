@@ -75,7 +75,7 @@ public class JustificatifServiceImpl implements JustificatifService {
 
     @Override
     public Justificatif getByPresenceId(String presenceId) {
-        return justificatifRepository.findByPresenceId(presenceId);
+        return justificatifRepository.findFirstByPresenceId(presenceId);
     }
 
 }

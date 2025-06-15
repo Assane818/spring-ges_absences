@@ -13,7 +13,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "login": "admin0@gmail.com",
+  "login": "etudiant0@gmail.com",
   "password": "passer"
 }
 
@@ -21,7 +21,7 @@ Content-Type: application/json
 GET https://gesabsences-32iz.onrender.com/api/v1/presences/type=ABSENT
 
 ###
-GET https://gesabsences-32iz.onrender.com/api/v1/presences/68388d5eee3dc7deb1b87155
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/683e4d3ae7a0f555d7e72976
 
 ###
 Post https://gesabsences-32iz.onrender.com/api/v1/justificatifs
@@ -40,7 +40,7 @@ GET http://localhost:8080/api/v1/presences/type=PRESENT/etudiant/683de8bf252c313
 GET http://localhost:8080/api/v1/presences/683c2f126ab4788eded3084d
 
 ###
-GET http://localhost:8080/api/v1/presences/etudiant/MAT10
+GET https://gesabsences-32iz.onrender.com/api/v1/presences/etudiant/MAT10
 
 ###
 GET https://gesabsences-32iz.onrender.com/api/v1/cours/etudiant/683de8bf252c3135dafe3713?date=2025-06-13
@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/web/v1/presences/683c2f126ab4788eded3084d
+GET http://localhost:8080/api/web/v1/presences/683e4d3ae7a0f555d7e72976
 
 ###
 GET http://localhost:8080/api/web/v1/classes
@@ -116,7 +116,7 @@ GET http://localhost:8080/api/web/v1/etudiants/classe/683de8b4252c3135dafe36fb/s
 GET https://gesabsences-32iz.onrender.com/api/web/v1/cours
 
 ###
-GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e728b3
+GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e72976
 
 ###
 GET http://localhost:8080/api/web/v1/presences/justify/true
