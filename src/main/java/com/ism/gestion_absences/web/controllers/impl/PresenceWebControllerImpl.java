@@ -1,6 +1,7 @@
 package com.ism.gestion_absences.web.controllers.impl;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -108,12 +109,27 @@ public class PresenceWebControllerImpl implements PresenceWebController {
 
     @Override
     public ResponseEntity<Map<String, Object>> getByJustify(String justify, int page, int size) {
+        //false
         Pageable pageable = PageRequest.of(page, size);
         Boolean isJustify = Boolean.parseBoolean(justify);
-        Page<Presence> allPresences = presenceService.getAllPaginate(pageable);
-        List<Presence> filteredContent = allPresences.getContent().stream()
-            .filter(p -> (p.getJustificatif() == null) == isJustify)
-            .toList();
+        List<Presence> allPresences = presenceService.getAll();
+        List<Presence> filteredContent = new ArrayList<>();
+        if (isJustify) {
+            for (Presence presence : allPresences) {
+                if (presence.getJustificatif() != null) {
+                    filteredContent.add(presence);
+                }
+            }
+        } else {
+            for (Presence presence : allPresences) {
+                if (presence.getJustificatif() == null) {
+                    filteredContent.add(presence);
+                }
+            }
+        }
+        // List<Presence> filteredContent = allPresences.stream()
+        //     .filter(p -> (p.getJustificatif() == null) == isJustify)
+        //     .toList();
         Page<Presence> pressences = new PageImpl<>(filteredContent, pageable, filteredContent.size());
         Page<PresenseAllWebResponse> presencesReponse = pressences.map(presenceMapper::toPresenseAllWebResponse);
         var totalPages = presencesReponse.getTotalPages();

@@ -62,7 +62,7 @@ public class JustificatifWebControllerImpl implements JustificatifWebController 
             just.getPresence().setAdmin(admin);
             presenceService.update(just.getPresence().getId(), just.getPresence());
             if (just == null) {
-                return new ResponseEntity<>(RestResponse.response(HttpStatus.NOT_FOUND, null, "CategorieAllResponse"), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(RestResponse.response(HttpStatus.NOT_FOUND, null, "JustificatifOneWebResponse"), HttpStatus.NOT_FOUND);
             }
             return new ResponseEntity<>(RestResponse.response(HttpStatus.ACCEPTED, justificatifMapper.toJustificatifOneWebResponse(just), "CategorieAllResponse"), HttpStatus.ACCEPTED);
         }

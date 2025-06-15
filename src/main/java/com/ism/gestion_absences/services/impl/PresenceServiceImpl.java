@@ -22,14 +22,12 @@ public class PresenceServiceImpl implements PresenceService {
 
     @Override
     public Page<Presence> getAllPaginate(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllPaginate'");
+        return presenceRepository.findAll(pageable);
     }
 
     @Override
     public List<Presence> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return presenceRepository.findAll();
     }
 
     @Override
@@ -42,6 +40,8 @@ public class PresenceServiceImpl implements PresenceService {
         Presence presence = presenceRepository.findById(id).orElse(null);
         if (presence != null) {
             presence.setAdmin(t.getAdmin());
+            presence.setJustificatif(t.getJustificatif());
+
         }
         return presenceRepository.save(presence);
     }
