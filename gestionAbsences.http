@@ -58,14 +58,14 @@ GET http://localhost:8080/api/web/v1/etudiants/status/true
 GET https://gesabsences-32iz.onrender.com/api/web/v1/presences/type=PRESENT
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours/683de8b6252c3135dafe3708
+GET https://gesabsences-32iz.onrender.com/api/web/v1/presences/type=ABSENT/cours/683de8b6252c3135dafe3708
 
 ###
 GET http://localhost:8080/api/web/v1/presences/type=ABSENT/date=2025-06-06
 
 
 ###
-GET https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/683e574a0061f2f63a4813ca
+GET https://gesabsences-32iz.onrender.com/api/web/v1/justificatifs/684f4a5a4b41b9a7229ff5d6
 
 ###
 Put http://localhost:8080/api/web/v1/justificatifs/684f5b2250728a2ab11a42ed
@@ -122,10 +122,10 @@ GET http://localhost:8080/api/web/v1/justificatifs/presence/683e4d3ae7a0f555d7e7
 GET http://localhost:8080/api/web/v1/presences/justify/false
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/date=2025-06-11
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3704/date=2025-06-02
 
 ###
-GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=true/date=2025-06-11
+GET https://gesabsences-32iz.onrender.com/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=false/date=2025-06-04 //p
 
 ###
 GET https://gesabsences-32iz.onrender.com/api/v1/presences/type=RETARD/etudiant/683de8bf252c3135dafe3739

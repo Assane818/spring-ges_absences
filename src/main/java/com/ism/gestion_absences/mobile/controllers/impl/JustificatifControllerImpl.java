@@ -54,8 +54,8 @@ public class JustificatifControllerImpl implements JustificatifController {
             justificatifEntity.setPresence(presence);
             justificatifEntity.setValidation(false);
             var just = justificatifService.create(justificatifEntity, object.getMultipartFiles());
-            presence.setJustificatif(just);
-            presenceService.update(presence.getId(), presence);
+            // presence.setJustificatif(just);
+            // presenceService.update(presence.getId(), presence);
             return new ResponseEntity<>(RestResponse.response(HttpStatus.CREATED, justificatifMapper.toJustificatifOneResponse(just), "JustificatifOneResponse"), HttpStatus.CREATED);
         }
     }

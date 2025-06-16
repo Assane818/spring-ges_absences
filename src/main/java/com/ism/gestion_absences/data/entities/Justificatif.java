@@ -15,7 +15,6 @@ import lombok.Setter;
 public class Justificatif extends AbstractEntity {
     private String motif;
     private boolean validation;
-    @DBRef(lazy = true)
     private Presence presence;
     List<String> files;
     
