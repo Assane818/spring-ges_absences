@@ -20,7 +20,7 @@ public interface PresenceRepository extends MongoRepository<Presence, String> {
     Page<Presence> findByTypePresenceAndCoursId(TypePresence type, String coursId, Pageable pageable);
     Page<Presence> findByTypePresenceAndDate(TypePresence type, LocalDate date, Pageable pageable);
     Presence findByEtudiantIdAndCoursId(String etudiantId, String coursId);
-    Page<Presence> findByTypePresenceAndDateAndCoursId(TypePresence type, String coursId, LocalDate date, Pageable pageable);    
+    Page<Presence> findByTypePresenceAndCoursIdAndDate(TypePresence type, String coursId, LocalDate date, Pageable pageable);    
 
 
 

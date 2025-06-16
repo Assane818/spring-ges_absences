@@ -96,7 +96,7 @@ Malade depuis 3 jours
 -----011000010111000001101001
 Content-Disposition: form-data; name="presenceId"
 
-683e4d3ae7a0f555d7e728b3
+683e4d3ae7a0f555d7e729d1
 -----011000010111000001101001
 Content-Disposition: form-data; name="multipartFiles"; filename="just1.jpg"
 Content-Type: image/jpeg
@@ -125,7 +125,7 @@ GET http://localhost:8080/api/web/v1/presences/justify/false
 GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3704/date=2025-06-02
 
 ###
-GET https://gesabsences-32iz.onrender.com/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3708/etat=false/date=2025-06-04 //p
+GET http://localhost:8080/api/web/v1/presences/type=ABSENT/cours=683de8b6252c3135dafe3704/etat=true/date=2025-06-02
 
 ###
 GET https://gesabsences-32iz.onrender.com/api/v1/presences/type=RETARD/etudiant/683de8bf252c3135dafe3739

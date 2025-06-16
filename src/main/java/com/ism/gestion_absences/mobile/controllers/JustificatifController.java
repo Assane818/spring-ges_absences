@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
